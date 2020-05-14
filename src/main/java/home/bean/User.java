@@ -1,4 +1,4 @@
-package bean;
+package home.bean;
 
 public class User {
 }

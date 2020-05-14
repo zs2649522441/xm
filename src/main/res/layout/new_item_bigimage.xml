@@ -5,32 +5,33 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
-        android:id="@+id/small_image"
-        android:layout_width="100dp"
+        android:id="@+id/big_image"
+        android:layout_width="match_parent"
         android:background="#00ff00"
-        android:layout_height="100dp"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
         tools:ignore="MissingConstraints" />
     <TextView
-        android:id="@+id/smll_image_title"
-        android:layout_width="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/big_image_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@id/small_image"
         android:textSize="22sp"
         android:lines="2"
-        android:layout_marginLeft="5dp"
+        app:layout_constraintTop_toBottomOf="@id/big_image"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textStyle="bold"
         android:text="这个是标题ahj lk hjlk "
         tools:ignore="MissingConstraints" />
     <TextView
-        android:id="@+id/small_image_type"
+        android:id="@+id/big_image_type"
         android:layout_width="wrap_content"
         android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/small_image"
+        app:layout_constraintTop_toBottomOf="@id/big_image_title"
         android:textColor="#708090"
-        android:layout_marginLeft="5dp"
+        app:layout_constraintLeft_toLeftOf="@id/big_image_title"
         android:text="交通"
-        app:layout_constraintBottom_toBottomOf="@id/small_image"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints" />
 

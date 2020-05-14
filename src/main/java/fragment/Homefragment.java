@@ -8,72 +8,68 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.xiangnmu.HomeAdapter;
+import home.adapter.HomeAdapter;
 import com.example.xiangnmu.R;
+import home.adapter.ViewAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import tabfragment.Afragment;
+import tabfragment.Bfragment;
+import tabfragment.Cfragment;
+import tabfragment.DAfragment;
+import tabfragment.EAfragment;
+import tabfragment.GAfragment;
+import tabfragment.HAfragment;
+import tabfragment.IAfragment;
 
-import bean.NewsBean;
-import homemvp.LoginPersenter;
-import homemvp.LoginView;
-
-public class Homefragment extends Fragment implements LoginView {
+public class Homefragment extends Fragment {
 
     private TabLayout mTab;
     private ViewPager mViewPager;
-    private List<NewsBean.DataBean.BannerListBean> bannerlist;
-    private List<NewsBean.DataBean.ArticleListBean> list;
-    private LoginPersenter persenter;
-    private RecyclerView mRecycler;
-    private HomeAdapter adapter;
+    private List<Fragment> fragments;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View inflate = inflater.inflate(R.layout.homefragment, container, false);
-        persenter = new LoginPersenter(this);
-
         initView(inflate);
-
-        persenter.getBanner();
-        persenter.getData();
-
         return inflate;
     }
 
     private void initView(View inflate) {
-       // mTab = inflate.findViewById(R.id.tab);
-       // mViewPager = inflate.findViewById(R.id.viewpager);
-        mRecycler = inflate.findViewById(R.id.recycler);
-        mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mTab = inflate.findViewById(R.id.tab);
+        mViewPager = inflate.findViewById(R.id.viewpager);
 
-        bannerlist = new ArrayList<>();
-        list = new ArrayList<>();
+        fragments = new ArrayList<>();
 
-        adapter = new HomeAdapter(getActivity());
-    }
+        fragments.add(new Afragment());
+        fragments.add(new Bfragment());
+        fragments.add(new Cfragment());
+        fragments.add(new DAfragment());
+        fragments.add(new EAfragment());
+        fragments.add(new Fragment());
+        fragments.add(new GAfragment());
+        fragments.add(new HAfragment());
+        fragments.add(new IAfragment());
 
-    @Override
-    public void showToast(String str) {
+        ViewAdapter viewAdapter = new ViewAdapter(getActivity().getSupportFragmentManager(), fragments);
+        mViewPager.setAdapter(viewAdapter);
 
-    }
+        mTab.setupWithViewPager(mViewPager);
 
-    @Override
-    public void setBanner(List<NewsBean.DataBean.BannerListBean> bannerbean) {
-
-        adapter.setBannerlist(bannerlist);
-
-    }
-
-    @Override
-    public void setData(List<NewsBean.DataBean.ArticleListBean> data) {
-
-        adapter.setList(data);
+        mTab.getTabAt(0).setText("推荐");
+        mTab.getTabAt(1).setText("战略");
+        mTab.getTabAt(2).setText("工程");
+        mTab.getTabAt(3).setText("一带一路");
+        mTab.getTabAt(4).setText("机械");
+        mTab.getTabAt(5).setText("特写");
+        mTab.getTabAt(6).setText("社评");
+        mTab.getTabAt(7).setText("即时");
+        mTab.getTabAt(8).setText("传承");
     }
 }

@@ -1,4 +1,4 @@
-package bean;
+package home.bean;
 
 import java.util.List;
 

@@ -1,23 +1,22 @@
-package fragment;
+package tabfragment;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.xiangnmu.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Myfragment extends Fragment {
+public class IAfragment extends Fragment {
 
 
-    public Myfragment() {
+    public IAfragment() {
         // Required empty public constructor
     }
 
@@ -26,8 +25,7 @@ public class Myfragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View inflate = inflater.inflate(R.layout.fragment_myfragment2, container, false);
-        return inflate;
+        return inflater.inflate(R.layout.fragment_ifragment, container, false);
     }
 
 }
